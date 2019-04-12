@@ -1,0 +1,7 @@
+<div class="col-md-4" class="bg-light">
+  <ul align="basline-top">
+    <li *ngFor="let country of countries">
+      <a routerLink="/countries/details">{{country.name}} - {{country.capital}}</a>
+    </li>
+  </ul>
+</div>
