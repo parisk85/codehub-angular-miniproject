@@ -9,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrenciesSidebarComponent } from './currencies-sidebar/currencies-sidebar.component';
+import { CurrenciesContentComponent } from './currencies-content/currencies-content.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       {
-        path: 'details',
+        path: 'details/:capital',
         component: ContentComponent
       }
     ]
@@ -33,13 +34,14 @@ const routes: Routes = [
     NavbarComponent,
     SidebarComponent,
     ContentComponent,
-    CurrenciesSidebarComponent
+    CurrenciesSidebarComponent,
+    CurrenciesContentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
