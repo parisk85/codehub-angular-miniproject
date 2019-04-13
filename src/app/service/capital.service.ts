@@ -7,11 +7,13 @@ import { Capital } from '../model/capital.model';
 })
 export class CapitalService {
 
-  capitalUrl: "https://restcountries.eu/rest/v2/capital/";
+  capital: Capital;
+  capitalUrl: string = "https://restcountries.eu/rest/v2/capital/";
 
   constructor(private http: HttpClient) { }
 
   getCapitalDetails(capital: string) {
-    return this.http.get<Capital>(this.capitalUrl + capital);
+    this.http.get<Capital>(this.capitalUrl + capital).subscribe(data => this.capital = data);
   }
+
 }

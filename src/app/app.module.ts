@@ -17,7 +17,7 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       {
-        path: 'details/:capital',
+        path: 'details',
         component: ContentComponent
       }
     ]

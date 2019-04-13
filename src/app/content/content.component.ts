@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CapitalService } from '../service/capital.service';
 import { Capital } from '../model/capital.model';
@@ -12,14 +12,11 @@ import { Country } from '../model/country.model';
 })
 export class ContentComponent implements OnInit {
 
-  capital: string;
   capitalDetails: Capital;
 
-  constructor(private route: ActivatedRoute, private capitalService: CapitalService) { }
+  constructor(private capitalService: CapitalService) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => this.capital = params['capital']);    
-    this.capitalService.getCapitalDetails(this.capital).subscribe(data => this.capitalDetails = data);    
+    this.capitalDetails = this.capitalService.capital;
   }
-
 }
